@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<project name="auction_manager" basedir="." default="deploy.web.war">
+    <dirname property="root.dir" file="../../build.properties"/>
+	
+	<import file="${root.dir}/SVN_LOCAL/lib/lib_properties.xml"/>
+	<import file="masterbuild_properties.xml"/>
+	<import file="${root.dir}/SVN_LOCAL/web/build-web.xml"/>
+</project>

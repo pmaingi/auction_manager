@@ -1,0 +1,7 @@
+<project name="lib_properties" basedir="." default="info"> 
+    <property name="absolute.static.lib.dir" value="../../../lib/"/>        
+                  
+    <target name="news_feed.show.static.lib.properties" description="show lib properties">
+        <echo>absolute.static.lib.dir=${absolute.static.lib.dir}</echo>
+    </target>
+</project>

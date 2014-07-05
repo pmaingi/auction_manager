@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Log4j Configuration                                                  -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+  
+  <!-- Appender for debugging everything -->
+  <appender name="EVERYTHING" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="/home/developer/auction_manager/auction_manager.log"/>
+    <param name="MaxFileSize" value="1024KB"/>
+    <param name="MaxBackupIndex" value="1"/>
+    <param name="Append" value="true"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-4r [%t] %-5p %c{2} %x - %m%n"/>
+    </layout>
+  </appender>
+  
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <!-- The default pattern: Date Priority [Category] Message\n -->
+      <param name="ConversionPattern" value="%d %-4r [%t] %-5p %c{2} %x - %m%n"/>
+    </layout>
+  </appender>
+  
+  <!-- ================ -->
+  <!-- Limit categories -->
+  <!-- ================ -->
+  
+  <!-- EVERYTHING -->
+  <category name="com">
+    <priority value="INFO"/>
+    <priority value="ERROR"/>
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="EVERYTHING"/>
+  </category>
+  
+  <!-- ======================= -->
+  <!-- Setup the Root category -->
+  <!-- ======================= -->
+  <root>
+  	<level value="DEBUG" />
+    <appender-ref ref="EVERYTHING"/>
+  </root>
+
+</log4j:configuration>

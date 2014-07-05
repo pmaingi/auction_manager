@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+
+<web-app>
+
+	<display-name>Auction Manager</display-name>
+	<description>Auction Manager</description>
+
+	<filter>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>com.bryma.auction_manager.filter.SecurityFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>ExpiresFilter</filter-name>
+		<filter-class>com.bryma.auction_manager.filter.ExpiresFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ExpiresFilter</filter-name>
+		<url-pattern>/img/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ExpiresFilter</filter-name>
+		<url-pattern>/css/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ExpiresFilter</filter-name>
+		<url-pattern>/js/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>
+			com.bryma.auction_manager.web.listeners.InitListener
+		</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>AuthServlet</servlet-name>
+		<display-name>Name for AuthServlet</display-name>
+		<description><![CDATA[Description for AuthServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.authentication.AuthServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>UnAuthServlet</servlet-name>
+		<display-name>Name for UnAuthServlet</display-name>
+		<description><![CDATA[Description for UnAuthServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.unauthentication.UnAuthServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RoleServlet</servlet-name>
+		<display-name>Name for RoleServlet</display-name>
+		<description><![CDATA[Description for RoleServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.RoleServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>HomeServlet</servlet-name>
+		<display-name>Name for HomeServlet</display-name>
+		<description><![CDATA[Description for HomeServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.HomeServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>ProductServlet</servlet-name>
+		<display-name>Name for ProductServlet</display-name>
+		<description><![CDATA[Description for ProductServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.ProductServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>SubscriptionServlet</servlet-name>
+		<display-name>Name for SubscriptionServlet</display-name>
+		<description><![CDATA[Description for SubscriptionServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.SubscriptionServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AuctionServlet</servlet-name>
+		<display-name>Name for AuctionServlet</display-name>
+		<description><![CDATA[Description for AuctionServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.AuctionServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>Name for AdminServlet</display-name>
+		<description><![CDATA[Description for AdminServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.AdminServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>ActiveBidsServlet</servlet-name>
+		<display-name>Name for ActiveBidsServlet</display-name>
+		<description><![CDATA[Description for ActiveBidsServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.ActiveBidsServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+
+    <servlet>
+		<servlet-name>HitsLogServlet</servlet-name>
+		<display-name>Name for HitsLogServlet</display-name>
+		<description><![CDATA[Description for HitsLogServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.HitsLogServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BroadcastServlet</servlet-name>
+		<display-name>Name for BroadcastServlet</display-name>
+		<description><![CDATA[Description for BroadcastServlet]]></description>
+		<servlet-class>com.bryma.auction_manager.web.servlets.BroadcastServlet</servlet-class>
+		<init-param>
+			<param-name>A parameter</param-name>
+			<param-value>A value</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AuthServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>UnAuthServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RoleServlet</servlet-name>
+		<url-pattern>/roles</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ProductServlet</servlet-name>
+		<url-pattern>/product</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>SubscriptionServlet</servlet-name>
+		<url-pattern>/subscription</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AuctionServlet</servlet-name>
+		<url-pattern>/auction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ActiveBidsServlet</servlet-name>
+		<url-pattern>/activebids</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>HitsLogServlet</servlet-name>
+		<url-pattern>/hitlogs</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BroadcastServlet</servlet-name>
+		<url-pattern>/broadcast</url-pattern>
+	</servlet-mapping>
+	
+    <session-config>
+       <session-timeout>55</session-timeout>
+    </session-config>
+
+
+	<welcome-file-list>
+		<welcome-file>jsp/login.jsp</welcome-file>
+	</welcome-file-list>
+
+	<taglib>
+		<taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+		<taglib-location>/WEB-INF/c.tld</taglib-location>
+	</taglib>
+	
+		<taglib>
+		<taglib-uri>/WEB-INF/component.tld</taglib-uri>
+		<taglib-location>/WEB-INF/component.tld</taglib-location>
+	</taglib>
+
+</web-app>

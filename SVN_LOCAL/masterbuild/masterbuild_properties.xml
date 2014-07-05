@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<project name="masterbuild_properties">
+	<property name="properties.file" location="build.properties" />
+	<property file="${properties.file}" />
+	<property name="lib.dir" value="${absolute.static.lib.dir}" />
+</project>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="jjolt" basedir=".">
+	<property name="web.src.dir" value="${root.dir}/SVN_LOCAL/web/src" />
+	<property name="web.build.dir" value="${root.dir}/BUILD_LOCAL/web/build/classes" />
+	<property name="web.dist.dir" value="${root.dir}/BUILD_LOCAL/web/dist" />
+	<property name="web.war.file" value="${web.dist.dir}/${web.war.filename}" />
+	<property name="web.deployment.descriptor.dir" value="${root.dir}/SVN_LOCAL/web/WebRoot/WEB-INF" />
+	<property name="web.build.web.xml.name" value="${web.deployment.descriptor.dir}/web.xml" />
+	<property name="web.build.context.xml.name" value="${meta.deployment.descriptor.dir}/context.xml" />
+	<property name="web.html.dir" value="${root.dir}/SVN_LOCAL/web/WebRoot/" />
+
+
+	<path id="classpath.web">
+		<pathelement location="." />
+		<fileset dir="${lib.dir}/">
+			<include name="**/**.jar" />
+		</fileset>
+	</path>
+
+	<target name="clean.web" description="Delete web build directory">
+		<delete dir="${web.build.dir}" />
+		<delete dir="${web.dist.dir}" />
+	</target>
+
+	<target name="make.web.dir" depends="clean.web" description="Create web build directory">
+		<mkdir dir="${web.build.dir}" />
+		<mkdir dir="${web.dist.dir}" />
+	</target>
+
+	<target name="compile.web" depends="make.web.dir" description="Compile web">
+		<javac destdir="${web.build.dir}" compiler="${build.compiler}" target="1.5" source="1.5" nowarn="${build.compiler.nowarn}" debug="${build.compiler.compile.with.debug}">
+			<src path="${web.src.dir}" />
+			<classpath>
+				<path refid="classpath.web" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="create.web.war" depends="compile.web" description="Create web war">
+		<war destfile="${web.war.file}" webxml="${web.build.web.xml.name}">
+			<classes dir="${web.build.dir}">
+				<include name="**/*.class" />
+			</classes>
+
+			<zipfileset dir="${web.src.dir}" prefix="WEB-INF/classes">
+				<include name="**/**.properties" />
+			</zipfileset>
+
+			<zipfileset dir="${web.html.dir}">
+				<include name="html/**.html" />
+			</zipfileset>
+
+			<zipfileset dir="${web.html.dir}">
+				<include name="**/**.jsp" />
+			</zipfileset>
+
+			<zipfileset dir="${web.html.dir}">
+				<include name="css/**" />
+			</zipfileset>
+
+			<zipfileset dir="${web.html.dir}">
+				<include name="**/**.js" />
+			</zipfileset>
+
+			<zipfileset dir="${web.html.dir}">
+				<include name="img/**.**" />
+			</zipfileset>
+			
+			<zipfileset dir="${web.html.dir}">
+				<include name="**/**.gif" />
+			</zipfileset>
+			
+			<zipfileset dir="${web.html.dir}">
+				 <include name="**/**.png" />
+			</zipfileset>
+				
+			<zipfileset dir="${web.deployment.descriptor.dir}" prefix="WEB-INF">
+				<include name="jboss-web.xml" />
+			</zipfileset>
+			
+		    <zipfileset dir="${web.deployment.descriptor.dir}" prefix="WEB-INF">
+			  <include name="**.tld" />
+			</zipfileset>
+			
+			<lib dir="${lib.dir}/google-gson">
+				<include name="**/**.jar" />
+			</lib>
+			<!--<lib dir="${lib.dir}/jakarta_commons">
+				<include name="**/**.jar" />
+			 </lib> -->
+
+		</war>
+	</target>
+
+	<target name="deploy.web.war" depends="create.web.war" description="Deploy web war">
+		<copy file="${web.war.file}" todir="${absolute.tomcat.home.dir}" />
+	</target>
+</project>

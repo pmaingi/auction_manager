@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="SVN_LOCAL/web/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/servlet/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/json/json.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/jakarta-commons/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/jakarta-commons/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/jakarta-commons/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/mysql/mysql-connector-java-5.1.14-bin.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/servlet/javax.servlet.jsp.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/log4j/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/DATA/my_projects/lib/google-gson/gson-2.2.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

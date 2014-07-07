@@ -18,7 +18,7 @@ import com.bryma.auction_manager.web.utils.Database;
 /**
  * Helper class for listing auctions,
  * 
- * @author <a href="mailto:enter email address">Peter</a>
+ * @author <a href="mailto:pmaingi@gmail.com">Peter</a>
  * @verion enter version, 3 Feb 2014
  * @since enter jdk version
  */

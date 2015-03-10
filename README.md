@@ -1,4 +1,4 @@
 auction_manager
 ===============
 
-Web app to display sms auctions
+This is a Web application that display sms auctions.All data comes from user bids via sms.

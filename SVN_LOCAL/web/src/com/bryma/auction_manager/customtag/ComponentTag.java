@@ -18,8 +18,8 @@ import com.bryma.auction_manager.web.utils.SessionUtils;
  * ComponentTag Custom Tag
  * Checks if user has selected component
  * 
- * @author <a href="mailto:enter email address">Peter</a>
- * @version enter version, 1 Jul 2012
+ * @author <a href="mailto:pmaingi@gmail.com">Peter</a>
+ * @version enter version, 14 April 2016
  * @since  enter jdk version
  */
 public class ComponentTag extends BodyTagSupport {
@@ -30,13 +30,16 @@ public class ComponentTag extends BodyTagSupport {
 
 	/**
 	 * @param component
-	 *            the component to set
+	 * the component to set
 	 */
 	public void setComponent(String component) {
 
 		this.component = component.toLowerCase();
 	}
-
+       /**
+        * do after body
+        *
+        */ 
 	public int doAfterBody() throws JspException {
 
 		BodyContent bodyContent = super.getBodyContent();
